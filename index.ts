@@ -69,6 +69,7 @@ let config: PowerlineConfig = {
   customItems: [],
   mouseScroll: true,
   fixedEditor: true,
+  showWelcome: false,
 };
 
 const CUSTOM_COMPACTION_STATUS_KEY = "compact-policy";
@@ -2748,7 +2749,7 @@ export default function powerlineFooter(pi: ExtensionAPI) {
 
     // Small delay to let pi-mono finish initialization
     setTimeout(() => {
-      if (!enabled || welcomeOverlayShouldDismiss || isStreaming || overlaySessionGeneration !== sessionGeneration) {
+      if (!enabled || !config.showWelcome || welcomeOverlayShouldDismiss || isStreaming || overlaySessionGeneration !== sessionGeneration) {
         welcomeOverlayShouldDismiss = false;
         return;
       }

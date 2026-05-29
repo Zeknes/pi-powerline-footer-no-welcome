@@ -6,6 +6,7 @@ export interface PowerlineConfig {
   customItems: CustomStatusItem[];
   mouseScroll: boolean;
   fixedEditor: boolean;
+  showWelcome: boolean;
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -84,7 +85,7 @@ function normalizeCustomItems(raw: unknown): CustomStatusItem[] {
 }
 
 export function parsePowerlineConfig(value: unknown, presets: readonly StatusLinePreset[]): PowerlineConfig {
-  const defaultConfig: PowerlineConfig = { preset: "default", customItems: [], mouseScroll: true, fixedEditor: true };
+  const defaultConfig: PowerlineConfig = { preset: "default", customItems: [], mouseScroll: true, fixedEditor: true, showWelcome: false };
 
   const directPreset = normalizePreset(value, presets);
   if (directPreset) return { ...defaultConfig, preset: directPreset };
@@ -96,6 +97,7 @@ export function parsePowerlineConfig(value: unknown, presets: readonly StatusLin
     customItems: normalizeCustomItems(value.customItems),
     mouseScroll: value.mouseScroll !== false,
     fixedEditor: value.fixedEditor !== false,
+    showWelcome: value.showWelcome === true,
   };
 }
 

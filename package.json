@@ -1,7 +1,7 @@
 {
-  "name": "pi-powerline-footer",
-  "version": "0.5.6",
-  "description": "Powerline-style status bar extension for pi coding agent",
+  "name": "pi-powerline-footer-no-welcome",
+  "version": "0.5.6-local.0",
+  "description": "Local fork of pi-powerline-footer with configurable startup welcome overlay",
   "type": "module",
   "files": [
     "*.ts",
